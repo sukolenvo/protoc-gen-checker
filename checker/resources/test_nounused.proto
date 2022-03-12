@@ -1,0 +1,40 @@
+syntax = "proto3";
+package com.sukolenvo.checker.test;
+
+service TestService {
+  rpc Unary (UnaryRequest) returns(UnaryResponse);
+
+  rpc Stream (StreamRequest) returns(stream StreamResponse);
+
+}
+
+message UnaryRequest {
+  oneof one {
+    UnaryRequestNested nested = 1;
+  }
+}
+
+message UnaryRequestNested {
+
+  repeated UnaryRequestStatus status = 1;
+
+  enum UnaryRequestStatus {
+    UNARY_REQUEST_STATUS_UNSPECIFIED = 0;
+  }
+}
+
+message UnaryResponse {
+  bytes bytes = 1;
+}
+
+message StreamRequest {
+
+}
+
+message StreamResponse {
+  StreamResponseStatus status = 1;
+}
+
+enum StreamResponseStatus {
+  STREAM_RESPONSE_STATUS_UNSPECIFIED = 0;
+}

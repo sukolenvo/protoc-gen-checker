@@ -1,0 +1,6 @@
+syntax = "proto3";
+package com.sukolenvo.checker.test;
+
+enum UnusedEnum {
+  UNUSED_ENUM_UNSPECIFIED = 0;
+}
