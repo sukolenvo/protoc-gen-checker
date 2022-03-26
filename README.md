@@ -23,3 +23,11 @@ Check all proto files in directory oneliner:
 ```bash
 protoc --checker_out="." -I . $(find . -name "*.proto" |tr '\n' ' ')
 ```
+
+## Install
+```bash
+wget https://github.com/sukolenvo/protoc-gen-checker/releases/download/v1.0.0/protoc-gen-checker
+chmod +x protoc-gen-checker
+# move to the PATH e.g mv protoc-gen-checker /usr/local/bin/
+# or use -plugin param e.g protoc --plugin="./protoc-gen-checker" ...
+```
