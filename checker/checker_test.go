@@ -29,6 +29,7 @@ func TestChecker(t *testing.T) {
 		{"test_unused_enum.proto", "", []string{"com.sukolenvo.checker.test"}, []string{}},
 		{"test_unused_enum.proto", "", []string{}, []string{"com.sukolenvo.checker.test.UnusedEnum"}},
 		{"test_unused_enum.proto", "unused message: 'com.sukolenvo.checker.test.UnusedEnum'", []string{"google"}, []string{"google.UnusedEnum"}},
+		{"test_map.proto", "unused message: 'com.sukolenvo.checker.test.Unused'", []string{}, []string{}},
 	}
 	for _, test := range tests {
 		t.Run(test.testFile, func(t *testing.T) {

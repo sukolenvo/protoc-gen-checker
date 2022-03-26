@@ -1,0 +1,6 @@
+syntax = "proto3";
+package com.sukolenvo.checker.test;
+
+message Unused {
+  map<string, string> map_field = 1;
+}

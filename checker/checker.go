@@ -103,7 +103,9 @@ func (c *Checker) checkUnusedRecursive(messages map[protoreflect.FullName]bool, 
 	}
 	if message.Messages != nil {
 		for _, embedded := range message.Messages {
-			result = append(result, c.checkUnusedRecursive(messages, embedded)...)
+			if !embedded.Desc.IsMapEntry() {
+				result = append(result, c.checkUnusedRecursive(messages, embedded)...)
+			}
 		}
 	}
 	return result
